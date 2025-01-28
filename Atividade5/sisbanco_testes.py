@@ -1,4 +1,4 @@
-from sisbanco import Conta, ContaAbstrata, ContaEspecial, ContaImposto, ContaPoupanca, Banco
+from sisbanco_bugs import Conta, ContaAbstrata, ContaEspecial, ContaImposto, ContaPoupanca, Banco
 import unittest
 
 
@@ -129,3 +129,46 @@ class TesteBanco(unittest.TestCase):
         banco.render_juros("123")
         self.assertEqual(banco.saldo("123"), 110)
     
+
+def main():
+    try:
+        banco = TesteBanco()
+        banco.teste_cadastrar()
+        banco.teste_creditar()
+        banco.teste_debitar()
+        banco.teste_procurar()
+        banco.teste_render()
+        banco.teste_saldo()
+        banco.teste_taxas()
+        banco.teste_transferir()
+    except:
+        print("Falhou em Banco!")
+    try:  
+        conta = TesteConta()
+        conta.testa_debitar()
+    except:
+        print("Falhou em Conta!")
+    try:
+        contaa = TesteContaAbstrata()
+        contaa.testa_creditar()
+        contaa.testa_saldo()
+    except:
+        print("Falhou em ContaAbstrata!")
+    try:
+        contae = TesteContaEspecial()
+        contae.teste_creditar()
+        contae.teste_renderbonus()
+    except:
+        print("Falhou em ContaEspecial!")
+    try:
+        contap = TesteContaPoupanca()
+        contap.testa_renderjuros()
+    except:
+        print("Falhou em ContaPoupanca!")
+    try:
+        contai = TesteContaImposto()
+        contai.teste_debitar()
+        contai.teste_taxa()
+    except:
+        print("Falhou em ContaImposto")
+main()
