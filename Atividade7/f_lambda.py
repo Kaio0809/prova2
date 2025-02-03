@@ -1,4 +1,3 @@
-
 soma = lambda x,y: x+y
 def teste_soma():
     print(soma(1, 2))
